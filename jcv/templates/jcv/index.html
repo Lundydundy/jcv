@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -65,23 +64,19 @@
             <div id="div1" class="div1">
                 <h2><u>Employment History</u></h2>
                 {% for job in jobs %}
-                <p>{{ job.start_date.year }} - {% if job.end_date %} {{ job.end_date.year }} {% else %} Present {% endif %}: {{ job }} </p>
+                <p>{{ job.start_date.year }} - {% if job.end_date %} {{ job.end_date.year }} {% else %} Present {% endif %}: {{ job }}</p>
                 {% endfor %}
             
             </div>
             <div id="div2">
-                <h2><u>Skills</u></h2>
-                <ul contenteditable="true">
-                    <li>Time Management</li>
-                    <li>Team Worker</li>
-                    <li>Critical Thinking</li>
-                    <li>Leadership</li>
-                    <li>Problem Solving</li>
-                    <li>Collaboration</li>
-                </ul>
-
-            </div>
-            <div id="div1">
+                <h2><u>Experience</u></h2>
+                <div class="experience">
+                    {% for job in jobs %}               
+                        <div id="experience-div">
+                            {{job}}
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
             <footer>
                 Contact Information

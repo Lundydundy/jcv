@@ -178,3 +178,17 @@ footer{
     color: rgb(0, 0, 0);
     background-color: white;
 }
+
+.experience{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#experience-div{
+  height: 100%;
+  min-height: 200px;
+  width: 100%;
+  border: solid black;
+  border-radius: 2px;
+  cursor: pointer;
+}
