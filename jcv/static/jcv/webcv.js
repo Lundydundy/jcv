@@ -19,10 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
 
-    //document.querySelector("#experience-button").addEventListener('click', ()=>{
-        //TODO
-    //})
-
     document.querySelector('#sub-heading').addEventListener('animationend',()=>{
         const info = document.querySelectorAll(".info p");
         statement(info, 0);
