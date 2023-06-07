@@ -14,20 +14,22 @@
         <!--Javascript-->  
         <script src="{% static 'jcv/webcv.js' %}"></script>
         
-        <title>CV Page</title>
+        <title>Resume Page</title>
+        <script> var csrftoken = '{{ csrf_token }}';</script>
+
     </head>
     <body>
         <div id="openpage">
             <div id="nametag">
                 <h1>Jack Schweitzer</h1>
-                <h2>CV</h2>
+                <h2>Resume</h2>
             </div>
         </div>
         <div id="page-container">
             <header>
                 <nav class="navbar navbar-expand-lg custom-navbar border-bottom border-bottom-dark" data-bs-theme="dark">
                     <div class="container-fluid">
-                    <a class="navbar-brand" href="#">CV Page</a>
+                    <a class="navbar-brand" href="#">Resume</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -37,10 +39,7 @@
                                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Skills</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Experience</a>
+                                <a id="experience-button" class="nav-link" href="#">Experience</a>
                             </li>
                         </ul>
                     </div>
@@ -68,19 +67,20 @@
                 {% endfor %}
             
             </div>
-            <div id="div2">
+            <div id="div2" class="exp">
                 <h2><u>Experience</u></h2>
                 <div class="experience">
-                    {% for job in jobs %}               
-                        <div id="experience-div">
-                            {{job}}
-                        </div>
-                    {% endfor %}
                 </div>
+            </div>
+            <div class="education">
+                <h2><u>Education</u></h2>
+                {% for cert in education %}
+                <p style="color: white">{{ cert }}</p>
+                {% endfor %}
             </div>
             <footer>
                 Contact Information
-                <div>Email: jj@gmail.com</div> 
+                <div>Email: Jjschweitzer@gmail.com</div> 
                 <div>Phone Number: 41678748393</div>
             </footer>
         </div>
