@@ -132,11 +132,16 @@ function modal(job){
         timeWorked.innerHTML = `${start_month} ${job.startdate.slice(0, 4)} - ${endDate}`;
     }
 
-
+    let btn = document.createElement('btn');
+    btn.className = 'btn-close';
+    btn.addEventListener('click',()=>{
+        modal.hide();
+    })
+    btn.style.float ='right';
 
     let resp = document.createElement('h5');
     resp.innerHTML = job.responsibilities;
-    modalDiv.append(jobTitle, timeWorked);
+    modalDiv.append(btn,jobTitle, timeWorked);
     modalDiv.append(resp);
 
 
@@ -205,9 +210,5 @@ function modal(job){
         });
       }
 
-      function scrollToDiv(targetDiv) {
-        document.querySelector(targetDiv).scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
+     
 });

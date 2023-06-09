@@ -120,6 +120,7 @@ body{
   min-height: 100%;
   font-family:monospace;
   background-color: rgb(68, 65, 65);
+  max-width: 100%;
 }
 
 #heading-container {
@@ -192,11 +193,11 @@ footer{
 .experience-div{
   height: 100%;
   min-height: 150px;
-  width: 100%;
   border: solid black;
   border-radius: 2px;
   cursor: pointer;
   text-align: center;
+  padding: 5px;
 }
 
 .experience-div:hover{
@@ -214,7 +215,28 @@ footer{
   border: solid black;
   background-color: var(--background-color);
   color: white;
+  overflow: visible;
   
+}
+
+@media (max-width: 768px) {
+  .modal{
+    padding: 5px;
+    max-height: 50%;
+    font-size: smaller;
+    width: 80%;
+    margin-top: 15%;
+    margin-left: 10%;
+    border: solid black;
+    background-color: var(--background-color);
+    color: white;
+    overflow: scroll;
+    overflow-x: hidden;
+  
+  }
+  #page-container{
+    max-width: 100vw;
+  }
 }
 
 .modal-content{
@@ -226,5 +248,4 @@ footer{
   background-color: rgb(68, 65, 65);
   color: white;
   padding: 5px;
-  
 }
