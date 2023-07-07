@@ -35,3 +35,22 @@ class Education(models.Model):
 
     def __str__(self):
         return f"{self.institute} - {self.certification}"
+    
+class Customize (models.Model):
+    name = models.CharField(max_length=180)
+    background_colour = models.CharField(max_length=180)
+    font = models.CharField(max_length=180)
+    font_colour = models.CharField(max_length=180)
+    align = models.CharField(max_length=180)
+    style = models.CharField(max_length=180, blank=True, null=True)
+
+    def serialize_div(self):
+        return{
+            'name': self.name,
+            'font': self.font,
+            'fontcolour': self.font_colour,
+            'backgroundcolour': self.background_colour,
+            'align': self.align,
+            'textstyle': self.style
+        }
+

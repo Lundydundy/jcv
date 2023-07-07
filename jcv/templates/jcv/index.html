@@ -26,43 +26,292 @@
             </div>
         </div>
         <div id="page-container">
-          
-            <div id="div1">
+            {% if user.is_superuser %}
+            <div id="admin" class="editadmin">
+                <button id="customize-btn" class="btn btn-light">View Page</button>
+            </div>
+            {% endif %}
+            {% if user.is_superuser %}
+            <div id="headedit" class="edit">
+                Font:
+                <select id="font" type="text" placeholder="font">
+                    <option id="headfont" disabled="" selected="">Font</option>
+                    {% for font in fonts %}
+                    <option style="font-family: {{font}};">{{font}}</option>
+                    {% endfor %}
+                </select>
+                Font Colour:
+                <select id="fontcolour" type="text" placeholder="font colour">
+                    <option id="headfontcolour" disabled="" selected="">Font Colour</option>
+                    {% for colour in colours %}
+                        {% if colour in coloursd %}
+                        <option style="background: {{colour}}; color: white">{{colour}}</option>
+                        {% else %}
+                        <option style="background: {{colour}};">{{colour}}</option>
+                    {% endif %}
+                {% endfor %}
+                </select>
+                Background:
+                <select id="backgroundcolour" type="text" placeholder="background colour">
+                    <option id="headbackgroundcolour" disabled="" selected="">Background Colour</option>
+                    {% for colour in colours %}
+                        {% if colour in coloursd %}
+                        <option style="background: {{colour}}; color: white">{{colour}}</option>
+                        {% else %}
+                        <option style="background: {{colour}};">{{colour}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                Alignment:
+                <select id="alignment" type="text" placeholder="Alignment">
+                    <option id="headalignment" disabled="" selected="">Alignment</option>
+                    {% for align in alignment %}
+                    <option>{{align}}</option>
+                    {% endfor %}
+                </select>
+
+                <button class="btn btn-primary">Save</button>
+
+            </div>
+            {% endif %}
+
+            <div id="head" class="headinge">    
                 <div id="heading-container">
                     <h1 id="heading">Jack Schweitzer</h1>
                 </div>
                 <div></div>
                 <div id="sub-heading-container">
-                    <h2 id="sub-heading" >Project Manager</h2>
+                    <h2 id="sub-heading">Project Manager</h2>
                 </div>
             </div>
-            <div id="div2" class="info">
-                <h3><u>Statement</u></h3>
-                <p>{{ statement }}</p>
-            </div>
+            
+            {% if user.is_superuser %}           
+            <div id="statementedit" class="edit">
+                Font:
+                <select id="font" type="text" placeholder="font">
+                    <option id="statementfont" disabled="" selected="">Font</option>
+                    {% for font in fonts %}
+                    <option style="font-family: {{font}};">{{font}}</option>
+                    {% endfor %}
+                </select>
+                Font Colour:
+                <select id="fontcolour" type="text" placeholder="font colour">
+                    <option id="statementfontcolour" disabled="" selected="">Font Colour</option>
+                    {% for colour in colours %}
+                        {% if colour in coloursd %}
+                        <option style="background: {{colour}}; color: white">{{colour}}</option>
+                        {% else %}
+                        <option style="background: {{colour}};">{{colour}}</option>
+                    {% endif %}
+                    {% endfor %}
 
-            <div id="div1" class="div1">
+                </select>
+                Background:
+                <select id="backgroundcolour" type="text" placeholder="background colour">
+                    <option id="statementbackgroundcolour" disabled="" selected="">Background Colour</option>
+                    {% for colour in colours %}
+                        {% if colour in coloursd %}
+                        <option style="background: {{colour}}; color: white">{{colour}}</option>
+                        {% else %}
+                        <option style="background: {{colour}};">{{colour}}</option>
+                    {% endif %}
+                    {% endfor %}
+
+                </select>
+                Alignment:
+                <select id="alignment" type="text" placeholder="Alignment">
+                    <option id="statementalignment" disabled="" selected="">Alignment</option>
+                    {% for align in alignment %}
+                    <option>{{align}}</option>
+                    {% endfor %}
+                </select>
+                Text Style:
+                <select id="textstyle" type="text" placeholder="Text Style">
+                    <option id="statementtextstyle" disabled="" selected="">Style</option>
+                    {% for style in textstyle %}
+                    <option>{{style}}</option>
+                    {% endfor %}
+                </select>
+
+                <button class="btn btn-primary">Save</button>
+
+            </div>
+            {% endif %}
+            <div id="statement" class="info">
+                <h3><u>Statement</u></h3>
+                <div id="statementdiv">
+                    <p>{{ statement }}</p>
+                </div>
+            </div>
+            
+            {% if user.is_superuser %}           
+            <div id="employmenthistoryedit" class="edit">
+                Font:
+                <select id="font" type="text" placeholder="font">
+                    <option id="employmenthistoryfont" disabled="" selected="">Font</option>
+                    {% for font in fonts %}
+                    <option style="font-family: {{font}};">{{font}}</option>
+                    {% endfor %}
+                </select>
+                Font Colour:
+                <select id="fontcolour" type="text" placeholder="font colour">
+                    <option id="employmenthistoryfontcolour" disabled="" selected="">Font Colour</option>
+                    {% for colour in colours %}
+                        {% if colour in coloursd %}
+                        <option style="background: {{colour}}; color: white">{{colour}}</option>
+                        {% else %}
+                        <option style="background: {{colour}};">{{colour}}</option>
+                    {% endif %}
+                    {% endfor %}
+
+                </select>
+                Background:
+                <select id="backgroundcolour" type="text" placeholder="background colour">
+                    <option id="employmenthistorybackgroundcolour" disabled="" selected="">Background Colour</option>
+                    {% for colour in colours %}
+                        {% if colour in coloursd %}
+                        <option style="background: {{colour}}; color: white">{{colour}}</option>
+                        {% else %}
+                        <option style="background: {{colour}};">{{colour}}</option>
+                    {% endif %}
+                    {% endfor %}
+
+                </select>
+                Alignment:
+                <select id="alignment" type="text" placeholder="Alignment">
+                    <option id="employmenthistoryalignment" disabled="" selected="">Alignment</option>
+                    {% for align in alignment %}
+                    <option>{{align}}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-primary">Save</button>
+
+            </div>
+            {% endif %}
+
+
+            <div id="employmenthistory" class="div1">
                 <h2><u>Employment History</u></h2>
                 {% for job in jobs %}
-                <p>{{ job.start_date.year }} - {% if job.end_date %} {{ job.end_date.year }} {% else %} Present {% endif %}: {{ job }}</p>
+                <li>{{ job.start_date.year }} - {% if job.end_date %} {{ job.end_date.year }} {% else %} Present {% endif %}: {{ job }}</li>
                 {% endfor %}
-            
+
             </div>
-            <div id="div2" class="exp">
+
+            {% if user.is_superuser %}
+            <div id="experienceedit" class="edit">
+                Font:
+                <select id="font" type="text" placeholder="font">
+                    <option id="experiencefont" disabled="" selected="">Font</option>
+                    {% for font in fonts %}
+                    <option style="font-family: {{font}};">{{font}}</option>
+                    {% endfor %}
+                </select>
+                Font Colour:
+                <select id="fontcolour" type="text" placeholder="font colour">
+                    <option id="experiencefontcolour" disabled="" selected="">Font Colour</option>
+                    {% for colour in colours %}
+                        {% if colour in coloursd %}
+                            <option style="background: {{colour}}; color: white">{{colour}}</option>
+                            {% else %}
+                            <option style="background: {{colour}};">{{colour}}</option>
+                        {% endif %}
+                    {% endfor %}
+
+                </select>
+                Background:
+                <select id="backgroundcolour" type="text" placeholder="background colour">
+                    <option id="experiencebackgroundcolour" disabled="" selected="">Background Colour</option>
+                    {% for colour in colours %}
+                        {% if colour in coloursd %}
+                        <option style="background: {{colour}}; color: white">{{colour}}</option>
+                        {% else %}
+                        <option style="background: {{colour}};">{{colour}}</option>
+                        {% endif %}
+                    {% endfor %}
+
+                </select>
+                Alignment:
+                <select id="alignment" type="text" placeholder="Alignment">
+                    <option id="experiencealignment" disabled="" selected="">Alignment</option>
+                    {% for align in alignment %}
+                    <option>{{align}}</option>
+                    {% endfor %}
+                </select>
+                Text Style:
+                <select id="textstyle" type="text" placeholder="Text Style">
+                    <option id="experiencetextstyle" disabled="" selected="">Style</option>
+                    {% for style in textstyle %}
+                    <option>{{style}}</option>
+                    {% endfor %}
+                </select>
+
+                <button class="btn btn-primary">Save</button>
+
+
+            </div>
+            {% endif %}
+
+            <div id="experience" class="exp">
                 <h2><u>Experience</u></h2>
-                <div class="experience">
-                </div>
+                <div class="experience"></div>
             </div>
-            <div class="education">
+            
+            {% if user.is_superuser %}
+            <div id="educationedit" class="edit">
+                Font:
+                <select id="font" type="text" placeholder="font">
+                    <option id="educationfont" disabled="" selected="">Font</option>
+                    {% for font in fonts %}
+                    <option style="font-family: {{font}};">{{font}}</option>
+                    {% endfor %}
+                </select>
+                Font Colour:
+                <select id="fontcolour" type="text" placeholder="font colour">
+                    <option id="educationfontcolour" disabled="" selected="">Font Colour</option>
+                    {% for colour in colours %}
+                        {% if colour in coloursd %}
+                        <option style="background: {{colour}}; color: white">{{colour}}</option>
+                        {% else %}
+                        <option style="background: {{colour}};">{{colour}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                Background:
+                <select id="backgroundcolour" type="text" placeholder="background colour">
+                    <option id="educationbackgroundcolour" disabled="" selected="">Background Colour</option>
+                    {% for colour in colours %}
+                    <option>{{colour}}</option>
+                    {% endfor %}
+                </select>
+                Alignment:
+                <select id="alignment" type="text" placeholder="Alignment">
+                    <option id="educationalignment" disabled="" selected="">Alignment</option>
+                    {% for align in alignment %}
+                    <option>{{align}}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-primary">Save</button>
+
+            </div>
+            {% endif %}
+
+            <div id="education">
                 <h2><u>Education</u></h2>
                 {% for cert in education %}
-                <p style="color: white">{{ cert }}</p>
+                <li>{{ cert }}</li>
                 {% endfor %}
+
             </div>
             <footer>
                 Contact Information
                 <div>Email: Jjschweitzer@gmail.com</div> 
                 <div>Phone Number: 41678748393</div>
+                {% if user.is_superuser %}
+                    <a href="{% url 'logout' %}">Log Out</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Log in</a>
+                {% endif %}
             </footer>
         </div>
     </body>
