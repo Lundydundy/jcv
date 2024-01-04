@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('#page-container').style.display = 'none';
 
     fetch("/jobs")
         .then(response => response.json())
@@ -8,17 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
             jobs = jobs.jobs;
             jobs.forEach(createExperienceDiv);
         })
-
-    document.querySelector('#nametag').addEventListener('click', () => {
-        document.querySelector('#openpage').className = 'fades';
-        document.querySelector('#openpage').addEventListener('animationend', () => {
-            document.querySelector('#page-container').style.display = 'block';
-            document.querySelector('#page-container').className = 'fadein';
-            document.querySelector('#openpage').style.display = 'none';
-        })
-    })
-
-
 
     document.querySelector('#sub-heading').addEventListener('animationend', () => {
         const info = document.querySelectorAll(".info p");

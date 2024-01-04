@@ -1,3 +1,5 @@
+
+
 :root{
   --background-color: rgb(68, 65, 65)
 }
@@ -166,7 +168,16 @@ footer{
 
 .experience{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 280px));
+  align-items: center;
+  justify-content: center;
+}
+
+@media(max-width: 583px){
+  .experience{
+    grid-template-columns: repeat(auto-fill, minmax(50px, 150px));
+
+  }
 }
 
 .experience-div{
