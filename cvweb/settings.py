@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import dj_database_url
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ju*4eup$olyu!se^ko9ve0$v(r_s@t!r9zdbhv2@&)#s2v%v2b'
+SECRET_KEY = os.environ.get("SECRET_KEY") 
+#'django-insecure-ju*4eup$olyu!se^ko9ve0$v(r_s@t!r9zdbhv2@&)#s2v%v2b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -81,6 +83,12 @@ DATABASES = {
     }
 }
 
+database_url = os.environ.get("DATABASE_URL")
+
+DATABASES["default"] = dj_database_url.parse("postgres://jack_cv_db_user:DmotUNY4qN72zdvod0K4XtFiMRVS3HIH@dpg-cmbgh62cn0vc73ddffs0-a.oregon-postgres.render.com/jack_cv_db")
+
+
+#postgres://jack_cv_db_user:DmotUNY4qN72zdvod0K4XtFiMRVS3HIH@dpg-cmbgh62cn0vc73ddffs0-a.oregon-postgres.render.com/jack_cv_db
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
