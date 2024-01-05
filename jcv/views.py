@@ -91,12 +91,12 @@ def index(request):
         "paragraph",
         "list"
     ]
-    statement = Statement.objects.get()
+    statement = Statement.objects.all()
     jobs = Job.objects.all()
     jobs = jobs.order_by('-start_date')
     education = Education.objects.all()
     return render(request, "jcv/index.html",{
-        'statement': statement.text,
+        'statement': statement,
         'jobs': jobs,
         'education': education,
         'fonts': fonts,

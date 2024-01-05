@@ -136,7 +136,9 @@
             <div id="statement" class="info">
                 <h3><u>Statement</u></h3>
                 <div id="statementdiv">
-                    <p>{{ statement }}</p>
+                    {% for line in statement%}
+                    <p>{{ line.text }}</p>
+                    {% endfor %}
                 </div>
             </div>
             
